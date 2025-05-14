@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        button{
+            text-align: center;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kvadrātvienādojuma risinātājs </h1>
+    <input type="number" id="a">
+    <input type="number" id="b">
+    <input type="number" id="c">
+    <button type="button" onclick="poga()">Aprēķināt</button>
+    <script>
+        
+            function disk(){
+        return b*b-4*a*c;
+            }
+            function saknes(a,b,D){
+                if(D<0){
+                    returnfalse;
+                }else{
+                    var x1=(-b+Math.sqrt(D))/(2*a);
+                    var x2=(-b-Math.sqrt(D))/(2*a);
+                    return [x1,x2];
+                }
+            }
+
+            function poga(){
+                var a=Number(a.value);
+                var b=Number(b.value);
+                var c=Number(c.value);
+            
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a===0) {
+             rezultats.innerHTML="Ludze ievadiet korektus koeficientus!";
+             return;
+            }
+            var atb= saknes(a,b, disk(a,b,c));
+            if(atb === false){
+                rezultats.innerHTML="Kvadratvienadojumam nav realu skaitlu";
+            }
+            else{
+                rezultats.innerHTML="Saknes: x1= ${atb[0].toFixed(3)}, x2= ${atb[1].toFixede(3)}";
+            }
+        }
+        
+    </script>
+</body>
+</html>
